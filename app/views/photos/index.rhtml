@@ -1,0 +1,23 @@
+<div class="order-form">
+  
+  <fieldset>
+    <legend><em>Please Enter the Following Information:</em></legend>
+
+    <% form_for :form, :url => { :action => :create_orders } do |form| %>
+      <table>
+        <tr>
+          <td align="right"><label for="order_number">Number of Orders:</label></td>
+          <td><%= form.text_field :num_orders, :size => 10, 
+                                  :value => @num_orders ? @num_orders : "" %></td>  
+        </tr>
+        <tr>
+          <td><label for="order_photos">Photographs per Order:</label></td>
+          <td><%= form.text_field :num_photos, :size => 10,
+                                  :value => @num_photos ? @num_photos : "" %></td>  
+        </tr>
+      </table>
+      <br>
+      <%= submit_tag "Create Orders", :class => "submit" %>
+    <% end %>  
+  </fieldset>
+</div>

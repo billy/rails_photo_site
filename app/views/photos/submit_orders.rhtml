@@ -1,0 +1,10 @@
+<% form_for :form, :url => { :action => :index } do |form| -%>
+  <%= form.hidden_field :num_orders, :value => @num_orders %>
+  <%= form.hidden_field :num_photos, :value => @num_photos %>
+  <p>
+  <%= submit_tag "Create More Orders", :class => "submit" -%>
+
+  <%= @message_to_render %>
+
+<% end -%>
+

@@ -1,0 +1,27 @@
+<% form_for :form, :url => { :action => :submit_orders } do |form| -%>
+  <%= form.hidden_field :num_orders, :value => @num_orders %>
+  <%= form.hidden_field :num_photos, :value => @num_photos %>
+  <%= form.hidden_field :orders,     :value => @orders.to_yaml %>
+<p>
+<%= submit_tag "Submit Orders", :class => "submit" -%>
+</p>
+<% 0.upto(@num_orders - 1) do |i| -%>
+    <fieldset>
+      <legend><em>Order <%= i + 1 %>:</em></legend>
+      <table>
+        <% photos = @orders[i] -%>
+        <% photos.in_groups_of(10) do |single| -%>
+          <tr>
+            <% 0.upto(single.size - 1) do |j| -%>
+              <% break if single[j] == nil -%>
+              <td>
+                <img width="125" src="/images/photos/mine_small/<%= single[j] %>">
+              </td>
+            <% end -%>
+          </tr>
+        <% end -%>
+      </table>
+    </fieldset>
+  <% end -%>
+
+<% end -%>

@@ -1,0 +1,5 @@
+You must:
+---------
+
+1. gem install ruby-debug
+2. gem install rubyrrdtool

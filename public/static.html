@@ -1,0 +1,23 @@
+<div class="order-form">
+  
+  <fieldset>
+    <legend><em>Please Enter the Following Information:</em></legend>
+
+    <form action="/photos/create_orders" method="post">
+      <table>
+        <tr>
+          <td align="right"><label for="order_number">Number of Orders:</label></td>
+          <td><input id="form_num_orders" name="form[num_orders]" size="10" type="text" value="" /></td>  
+        </tr>
+
+        <tr>
+          <td><label for="order_photos">Photographs per Order:</label></td>
+          <td><input id="form_num_photos" name="form[num_photos]" size="10" type="text" value="" /></td>  
+        </tr>
+      </table>
+      <br>
+      <input class="submit" name="commit" type="submit" value="Create Orders" />
+    </form>  
+  </fieldset>
+
+</div>

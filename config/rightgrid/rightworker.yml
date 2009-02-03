@@ -1,0 +1,24 @@
+production:
+  RightWorkersDaemon:
+    aws_access_key:        '0RRF4481HTZXCXVZ1D82'
+    aws_secret_access_key: 'kI9JehqPolp1SO9qbUZ8sbyPl1Sk/4qdz35kBo4J'
+    log:     rightgrid.log
+    email:   rafael@rightscale.com
+    halt_on_exit: false
+    workers: 2
+    queues: 
+      Photo-Demo-In:
+        result_queue:    Photo-Demo-Out
+        result_queue_ignore_errored: false
+        # result_server:   result-server-url
+        # result_server_ignore_errored: true
+        audit_queue:     Photo-Demo-Audit
+        message_decoder: RightYamlDecoder
+        s3_log:          photo_demo_bucket/log/%{DATE}-%{TIME}
+        s3_out:          photo_demo_bucket/out/%{DATE}-%{TIME}
+        receive_message_timeout: 3600
+        life_time_after_fault:   7200
+        s3_in:           inFiles
+        s3_in_overwrite: false
+        s3_in_delete:    false
+        s3_in_flat:      true

@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+require 'S3'
+require 'pp'
+
+AWS_ACCESS_KEY_ID = '18518BXJYB0KKSSCYSG2'
+AWS_SECRET_ACCESS_KEY = '1olDZMLrmJlTN/9z0R1sfFZFmpAlgz3OQ5PFGDck'
+
+#images = Image.find(:all, :limit => 50 )
+
+conn = S3::AWSAuthConnection.new(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, false)
+Dir["images/*.jpg"].each do |filename|
+  basename = filename.split('/')[-1]
+  pp response = conn.put('www.pro-core.com',
+                         "images/wallpapers/#{basename}",
+                         File.new(filename).read,
+                         {
+                           "x-amz-acl" => "public-read",
+                           "Content-Type" => "image/jpeg"
+                         }
+                        )
+end
+  
