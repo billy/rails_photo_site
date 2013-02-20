@@ -58,6 +58,3 @@ end
 # Mime::Type.register "application/x-mobile", :mobile
 
 # Include your application configuration below
-
-AWS_ACCESS_KEY = '0RRF4481HTZXCXVZ1D82' 
-AWS_SECRET_KEY = 'kI9JehqPolp1SO9qbUZ8sbyPl1Sk/4qdz35kBo4J'
